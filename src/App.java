@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-import days.Day;
-import days.Day1;
+import days.*;
 
 public class App {
     public static void main(String[] args) {
@@ -10,6 +9,7 @@ public class App {
         double totalRunTime = 0.0;
 
         days.add(new Day1());
+        days.add(new Day2());
 
         for (Day day : days) {
             totalRunTime += calculateRunTime(day);

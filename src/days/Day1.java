@@ -13,7 +13,6 @@ public class Day1 implements Day{
     @Override
     public void solvePartOne() {
         String filePath = "inputs/day1_1.txt";
-        //String filePath = "inputs/example.txt";
         importPuzzle(filePath);
 
         Collections.sort(leftColumn);
