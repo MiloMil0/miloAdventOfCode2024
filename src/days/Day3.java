@@ -64,11 +64,7 @@ public class Day3 implements Day {
             }
         }
 
-        
-        for(String line: subStrings) {
-
-        }
-
+    
         System.out.println("the total of Day 3 part 2 = " +total);
     }
 }
