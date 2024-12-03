@@ -42,7 +42,6 @@ public class Day3 implements Day {
 
         Pattern pattern = Pattern.compile(regex);
 
-        boolean doIt = true;
         if(lines != null) {
             for(String line: lines) {
                 String splitAt = "(?=do\\(\\))|(?=don't\\(\\))";
@@ -53,6 +52,8 @@ public class Day3 implements Day {
                 }
             }
         }
+
+        boolean doIt = true;
         
         for(String line: subStrings) {
             if (line.length() >= 4 && line.substring(0, 4).equals("do()")) {
@@ -72,7 +73,6 @@ public class Day3 implements Day {
 
         }
 
-        
         System.out.println("the total of Day 3 part 2 = " +total);
     }
 }
