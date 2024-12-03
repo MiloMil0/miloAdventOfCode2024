@@ -1,9 +1,9 @@
 package days;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import helper.Parser;
+import helper.Utils;
 
 public class Day2 implements Day {
 
@@ -24,8 +24,7 @@ public class Day2 implements Day {
                 String[] numbers = line.split(" ");
                 boolean ascending = (Integer.parseInt(numbers[0]) < Integer.parseInt(numbers[numbers.length -1]));
                 
-
-                boolean allSafe = isValidSequence(ascending, convertString(numbers));
+                boolean allSafe = isValidSequence(ascending, Utils.convertString(numbers));
  
                 if(allSafe) {
                     safe++;
@@ -57,7 +56,7 @@ public class Day2 implements Day {
 
                 boolean ascending = (ascendingCount > descendingCount);
 
-                boolean allSafe = checkSequence(ascending, convertString(numbers));
+                boolean allSafe = checkSequence(ascending, Utils.convertString(numbers));
                 if(allSafe) {
                     safe++;
                 }
@@ -102,15 +101,6 @@ public class Day2 implements Day {
         return true;
     }
 
-    private ArrayList<Integer> convertString(String[] line) {
-        ArrayList<Integer> numberList = new ArrayList<>();
-
-            for(String num: line) {
-                numberList.add(Integer.parseInt(num));
-            }
-
-        return numberList;
-    }
 
     
 
