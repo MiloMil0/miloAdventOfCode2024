@@ -38,8 +38,6 @@ public class Day3 implements Day {
     public void solvePartTwo() {
         int total = 0;
 
-        ArrayList<String> subStrings = new ArrayList<>();
-
         Pattern pattern = Pattern.compile(regex);
 
         if(lines != null) {
