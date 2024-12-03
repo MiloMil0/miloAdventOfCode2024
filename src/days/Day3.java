@@ -43,33 +43,31 @@ public class Day3 implements Day {
         Pattern pattern = Pattern.compile(regex);
 
         if(lines != null) {
+            boolean doIt = true;
             for(String line: lines) {
                 String splitAt = "(?=do\\(\\))|(?=don't\\(\\))";
 
                 String[] subs = line.split(splitAt);
                 for(String s: subs) {
-                    subStrings.add(s);
+                    if (s.length() >= 4 && s.substring(0, 4).equals("do()")) {
+                        doIt = true;
+                    } else if (s.length() >= 7 && s.substring(0, 7).equals("don't()")) {
+                        doIt = false;
+                    }
+
+                    Matcher matcher = pattern.matcher(s);
+
+                    while(doIt && matcher.find()) {
+                        int num1 = Integer.parseInt(matcher.group(1));
+                        int num2 = Integer.parseInt(matcher.group(2));
+                        total += num1 * num2;
+                    }
                 }
             }
         }
 
-        boolean doIt = true;
         
         for(String line: subStrings) {
-            if (line.length() >= 4 && line.substring(0, 4).equals("do()")) {
-            doIt = true;
-            } else if (line.length() >= 7 && line.substring(0, 7).equals("don't()")) {
-            doIt = false;
-            }
-
-            Matcher matcher = pattern.matcher(line);
-
-            while(doIt && matcher.find()) {
-                int num1 = Integer.parseInt(matcher.group(1));
-                int num2 = Integer.parseInt(matcher.group(2));
-                total += num1 * num2;
-                System.out.println("multiplying: " + num1 + " * " + num2);
-            }
 
         }
 
