@@ -1,9 +1,11 @@
 package days;
 
 import java.util.ArrayList;
+import java.util.function.Supplier;
 
 import helper.Coordinate;
 import helper.Parser;
+import helper.Utils;
 
 public class Day4 implements Day {
 
@@ -21,11 +23,7 @@ public class Day4 implements Day {
         rows = lines.size();
         cols = lines.get(0).length();
 
-        char[][] grid = new char[rows][cols];
-
-        for (int i = 0; i < rows; i++) {
-            grid[i] = lines.get(i).toCharArray();
-        }
+        char[][] grid = Utils.createCharGrid(rows, cols, lines);
 
         int count = 0;
 
@@ -42,11 +40,8 @@ public class Day4 implements Day {
 
     @Override
     public void solvePartTwo() {
-        char[][] grid = new char[rows][cols];
 
-        for (int i = 0; i < rows; i++) {
-            grid[i] = lines.get(i).toCharArray();
-        }
+        char[][] grid = Utils.createCharGrid(rows, cols, lines);
 
         int count = 0;
 
@@ -90,16 +85,16 @@ public class Day4 implements Day {
     private int checkDirections(int x, int y, char[][] grid) {
         int count = 0;
 
-        for (int[] direction : Coordinate.DIRECTIONS) {
-            int dx = direction[0];
-            int dy = direction[1];
+        for (int[] direction : Coordinate.DIRECTIONS_DIAG) {
+            int dirX = direction[1];
+            int dirY = direction[0];
             boolean isValid = true;
 
-            for (int i = 0; i < WORD.length(); i++) {
-                int nx = x + i * dx;
-                int ny = y + i * dy;
+            for (int i = 1; i < WORD.length(); i++) {
+                int xMas = x + i * dirX;
+                int yMas = y + i * dirY;
                 
-                if (nx < 0 || ny < 0 || nx >= cols || ny >= rows || grid[ny][nx] != WORD.charAt(i)) {
+                if (xMas < 0 || yMas < 0 || xMas >= cols || yMas >= rows || grid[yMas][xMas] != WORD.charAt(i)) {
                     isValid = false;
                     break;
                 }
