@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Parser {
 
     public static ArrayList<String> readFile(String filePath) {
-    ArrayList<String> fileLines = null;
+        ArrayList<String> fileLines = null;
         try {
             fileLines = (ArrayList<String>) Files.readAllLines(Paths.get(filePath));
 
@@ -18,5 +18,22 @@ public class Parser {
         }
 
         return fileLines;
+    }
+
+    public static ArrayList<Integer> parseIntsFromLine(String line, String delimiter) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (String num : line.split(delimiter)) {
+            numbers.add(Integer.parseInt(num.trim()));
+        }
+        return numbers;
+    }
+    
+    public static char[][] parseCharGrid(int rows, int cols, ArrayList<String> lines) {
+        char[][] grid = new char[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            grid[i] = lines.get(i).toCharArray();
+        }
+
+        return grid;
     }
 }

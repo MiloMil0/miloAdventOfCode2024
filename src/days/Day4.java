@@ -1,7 +1,6 @@
 package days;
 
 import java.util.ArrayList;
-import java.util.function.Supplier;
 
 import helper.Coordinate;
 import helper.Parser;
@@ -23,7 +22,7 @@ public class Day4 implements Day {
         rows = lines.size();
         cols = lines.get(0).length();
 
-        char[][] grid = Utils.createCharGrid(rows, cols, lines);
+        char[][] grid = Parser.parseCharGrid(rows, cols, lines);
 
         int count = 0;
 
@@ -41,7 +40,7 @@ public class Day4 implements Day {
     @Override
     public void solvePartTwo() {
 
-        char[][] grid = Utils.createCharGrid(rows, cols, lines);
+        char[][] grid = Parser.parseCharGrid(rows, cols, lines);
 
         int count = 0;
 
