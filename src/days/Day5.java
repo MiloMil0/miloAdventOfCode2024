@@ -26,17 +26,10 @@ public class Day5 implements Day {
         ArrayList<String> firstPart = new ArrayList<>();
         ArrayList<String> secondPart = new ArrayList<>();
 
-        boolean findSecondPart = false;
         for (String line : lines) {
             if (line.contains("|")) {
                 firstPart.add(line);
-            }
-
-            if (!findSecondPart && !line.contains("|")) {
-                findSecondPart = true;
-            }
-
-            if (findSecondPart) {
+            } else {
                 secondPart.add(line);
             }
         }
@@ -103,22 +96,6 @@ public class Day5 implements Day {
         return correctSequence;
     }
 
-    private int sumMiddleNumbers(ArrayList<ArrayList<Integer>> sequences) {
-        int sum = 0;
-
-        for (ArrayList<Integer> nums : sequences) {
-            if (nums.isEmpty()) {
-                continue;
-            }
-            int stuckInTheMiddle = nums.size() / 2;
-            int numberInTheMiddle = nums.get(stuckInTheMiddle);
-            sum += numberInTheMiddle;
-
-        }
-
-        return sum;
-    }
-
     public ArrayList<Integer> reorderSequence(ArrayList<Integer> numbers) {
         Deque<Integer> deque = new ArrayDeque<>();
 
@@ -141,6 +118,20 @@ public class Day5 implements Day {
         }
 
         return orderedSeq;
+    }
+
+    private static int sumMiddleNumbers(ArrayList<ArrayList<Integer>> sequences) {
+        int sum = 0;
+
+        for (ArrayList<Integer> nums : sequences) {
+            if (nums.isEmpty()) {
+                continue;
+            }
+            int stuckInTheMiddle = nums.size() / 2;
+            sum += nums.get(stuckInTheMiddle);
+        }
+
+        return sum;
     }
 
     public static HashMap<Integer, ArrayList<Integer>> parseFirstPart(ArrayList<String> firstPart) {
