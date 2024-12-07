@@ -1,10 +1,8 @@
 package days;
 
-import java.nio.file.DirectoryIteratorException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-
 import helper.Coordinate.Direction;
 import helper.Coordinate;
 import helper.Parser;

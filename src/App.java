@@ -14,6 +14,7 @@ public class App {
         days.add(new Day4());
         days.add(new Day5());
         days.add(new Day6());
+        days.add(new Day7());
 
         for (Day day : days) {
             totalRunTime += calculateRunTime(day);
