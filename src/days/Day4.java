@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import helper.Coordinate;
 import helper.Parser;
-import helper.Utils;
 
 public class Day4 implements Day {
 
