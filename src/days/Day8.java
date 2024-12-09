@@ -9,10 +9,10 @@ import helper.Parser;
 
 public class Day8 implements Day {
     private ArrayList<String> lines = new ArrayList<>();
-    Map<Character, ArrayList<int[]>> antennas = new HashMap<>();
+    private Map<Character, ArrayList<int[]>> antennas = new HashMap<>();
     private int rows;
     private int cols;
-    char[][] antinodeGrid;
+    private char[][] antinodeGrid;
 
     @Override
     public void solvePartOne() {
@@ -82,7 +82,6 @@ public class Day8 implements Day {
                 }
             }
         }
-
         System.out.println("Total antinodes Part Two: " + countAntinodes());
     }
 
@@ -110,7 +109,6 @@ public class Day8 implements Day {
 
     private int countAntinodes() {
         int count = 0;
-
         for (int y = 0; y < rows; y++) {
             for (int x = 0; x < cols; x++) {
                 if (antinodeGrid[y][x] != '#') {
@@ -119,7 +117,6 @@ public class Day8 implements Day {
                 count++;
             }
         }
-
         return count;
     }
 }
