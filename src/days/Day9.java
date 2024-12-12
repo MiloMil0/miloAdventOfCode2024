@@ -33,7 +33,7 @@ public class Day9 implements Day {
                 spaces.add(value);
             }
         }
-        System.out.println("Total value part1: " + calculateSequence(false));
+        System.out.println("Total value part1: " + calculateSequence());
     }
 
     @Override
@@ -81,7 +81,7 @@ public class Day9 implements Day {
         System.out.println("Total value part2: " + total);
     }
 
-    private long calculateSequence(boolean part2) {
+    private long calculateSequence() {
         long total = 0;
 
         ArrayList<Integer> fileIDCopy = new ArrayList<>(fileID);
