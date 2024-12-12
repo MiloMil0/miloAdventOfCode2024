@@ -127,10 +127,7 @@ public class Day9 implements Day {
 
     private static int calculateRange(int pos, int range) {
         int endCounter = pos + range - 1;
-        int rangeLength = endCounter - pos + 1;
-
-        return rangeLength * (pos + endCounter) / 2;
-
+        return range * (pos + endCounter) / 2;
     }
 
 }

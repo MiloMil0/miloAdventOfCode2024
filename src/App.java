@@ -20,11 +20,14 @@ public class App {
         days.add(new Day10());
         days.add(new Day11());
 
+        int totalDays = 0;
+
         for (Day day : days) {
             totalRunTime += calculateRunTime(day);
+            totalDays++;
         }
 
-        System.out.println("Total runtime so far: " + totalRunTime);
+        System.out.println("Total runtime after " + totalDays + " days : " + totalRunTime);
     }
 
     private static double calculateRunTime(Day day) {
