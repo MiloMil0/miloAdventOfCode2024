@@ -46,7 +46,32 @@ public class Utils {
         }
     }
 
-    public static int shortestPathNoDiag(char[][] grid, int[] start, int[] end, char path) {
+    public static int shortestCharPathNoDiag(char[][] grid, int[] start, int[] end, char path) {
+        int rows = grid.length, cols = grid[0].length;
+        boolean[][] visited = new boolean[rows][cols];
+        Deque<int[]> queue = new ArrayDeque<>();
+        queue.addLast(new int[]{start[0], start[1], 0}); 
+        visited[start[0]][start[1]] = true;
+
+        while (!queue.isEmpty()) {
+            int[] current = queue.pollFirst();
+            int x = current[0], y = current[1], dist = current[2];
+
+            if (x == end[0] && y == end[1]) return dist;
+
+            for (int[] dir : Coordinate.DIRECTIONS_NO_DIAG) {
+                int nextX = x + dir[0];
+                int nextY = y + dir[1];
+                if (nextX >= 0 && nextY >= 0 && nextX < rows && nextY < cols && !visited[nextX][nextY] && grid[nextX][nextY] == path) {
+                    visited[nextX][nextY] = true;
+                    queue.addLast(new int[]{nextX, nextY, dist + 1});
+                }
+            }
+        }
+
+        return -1; 
+    }
+    public static int shortestIntPathNoDiag(int[][] grid, int[] start, int[] end, int path) {
         int rows = grid.length, cols = grid[0].length;
         boolean[][] visited = new boolean[rows][cols];
         Deque<int[]> queue = new ArrayDeque<>();

@@ -85,13 +85,13 @@ public class Coordinate {
         return (x + size < cols && x - size >= 0 && y + size < rows && y - size >= 0);
     }
 
-    public static ArrayList<int[]> getNeighbors(int x, int y, int[][] directions, int rows, int cols) {
+    public static ArrayList<int[]> getNeighbors(int y, int x, int[][] directions, int rows, int cols) {
         ArrayList<int[]> neighbors = new ArrayList<>();
         for (int[] dir : directions) {
-            int nx = x + dir[0];
-            int ny = y + dir[1];
-            if (nx >= 0 && ny >= 0 && nx < rows && ny < cols) {
-                neighbors.add(new int[] { nx, ny });
+            int nx = x + dir[1];
+            int ny = y + dir[0];
+            if (nx >= 0 && ny >= 0 && nx < cols && ny < rows) {
+                neighbors.add(new int[] { ny, nx });
             }
         }
         return neighbors;
