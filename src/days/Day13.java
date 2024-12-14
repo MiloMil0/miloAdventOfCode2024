@@ -12,9 +12,9 @@ public class Day13 implements Day {
     public void solvePartOne() {
         parseMatrix("inputs/day13.txt");
         long total = 0;
-        for (long i = 0; i < matrixX.size(); i++) {
+        for (int i = 0; i < matrixX.size(); i++) {
 
-            long[] pushes = solveMatrix(matrixX.get((int)i), matrixY.get((int)i));
+            long[] pushes = solveMatrix(matrixX.get(i), matrixY.get(i));
             total += pushes[0] * 3 + pushes[1];
         }
         System.out.println("The total button pushes is: " + total);
@@ -23,10 +23,10 @@ public class Day13 implements Day {
     @Override
     public void solvePartTwo() {
         long total = 0;
-        for (long i = 0; i < matrixX.size(); i++) {
-            matrixX.get((int)i)[2] += 10000000000000L;
-            matrixY.get((int)i)[2] += 10000000000000L;
-            long[] pushes = solveMatrix(matrixX.get((int)i), matrixY.get((int)i));
+        for (int i = 0; i < matrixX.size(); i++) {
+            matrixX.get(i)[2] += 10000000000000L;
+            matrixY.get(i)[2] += 10000000000000L;
+            long[] pushes = solveMatrix(matrixX.get(i), matrixY.get(i));
             total += pushes[0] * 3 + pushes[1];
         }
         System.out.println("The new total button pushes is: " + total);
