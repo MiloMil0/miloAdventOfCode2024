@@ -33,7 +33,8 @@ public class Day11 implements Day {
 
     @Override
     public void solvePartTwo() {
-        for (int i = 0; i < 75; i++) {
+        //first comment :) the reason this is 50 is because I already did 25
+        for (int i = 0; i < 50; i++) {
             countStones();
         }
 

@@ -7,6 +7,8 @@ public class App {
 
         ArrayList<Day> days = new ArrayList<>();
         double totalRunTime = 0.0;
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
 
         days.add(new Day1());
         days.add(new Day2());
@@ -19,6 +21,8 @@ public class App {
         days.add(new Day9());
         days.add(new Day10());
         days.add(new Day11());
+        days.add(new Day12());
+        days.add(new Day13());
 
         int totalDays = 0;
 
