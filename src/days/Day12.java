@@ -14,7 +14,7 @@ public class Day12 implements Day {
 
     @Override
     public void solvePartOne() {
-        String filePath = "inputs/example.txt";
+        String filePath = "inputs/day12.txt";
         lines = Parser.readFile(filePath);
         if (lines == null) {
             return;
