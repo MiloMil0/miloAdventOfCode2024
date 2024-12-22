@@ -1,7 +1,6 @@
 package days;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 
 import helper.Coordinate;
@@ -12,7 +11,6 @@ public class Day14 implements Day {
     private ArrayList<Coordinate> velocities = new ArrayList<>();
     private static final int WIDTH = 101;
     private static final int HEIGHT = 103;
-    private int[][] grid = new int[HEIGHT][WIDTH];
 
     @Override
     public void solvePartOne() {
@@ -73,7 +71,6 @@ public class Day14 implements Day {
                     break;
                 }
             }
-
         }
 
         System.out.println("Christmas tree found after: " + seconds + " seconds");

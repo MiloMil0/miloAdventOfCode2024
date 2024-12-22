@@ -33,7 +33,6 @@ public class Utils {
         return (a * b) / ggd(a, b);
     }
 
-
     public static void floodFill(char[][] grid, int x, int y, char target, char replacement) {
         if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length || grid[x][y] != target
                 || grid[x][y] == replacement) {
@@ -50,51 +49,55 @@ public class Utils {
         int rows = grid.length, cols = grid[0].length;
         boolean[][] visited = new boolean[rows][cols];
         Deque<int[]> queue = new ArrayDeque<>();
-        queue.addLast(new int[]{start[0], start[1], 0}); 
-        visited[start[0]][start[1]] = true;
+        queue.addLast(new int[] { start[1], start[0], 0 });
+        visited[start[1]][start[0]] = true;
 
         while (!queue.isEmpty()) {
             int[] current = queue.pollFirst();
-            int x = current[0], y = current[1], dist = current[2];
-
-            if (x == end[0] && y == end[1]) return dist;
+            int x = current[1], y = current[0], dist = current[2];
 
             for (int[] dir : Coordinate.DIRECTIONS_NO_DIAG) {
-                int nextX = x + dir[0];
-                int nextY = y + dir[1];
-                if (nextX >= 0 && nextY >= 0 && nextX < rows && nextY < cols && !visited[nextX][nextY] && grid[nextX][nextY] == path) {
-                    visited[nextX][nextY] = true;
-                    queue.addLast(new int[]{nextX, nextY, dist + 1});
+                int nextX = x + dir[1];
+                int nextY = y + dir[0];
+                if (nextX == end[1] && nextY == end[0])
+                    return dist;
+                if (nextX >= 0 && nextY >= 0 && nextX < cols && nextY < rows && !visited[nextY][nextX]
+                        && grid[nextY][nextX] == path) {
+                    visited[nextY][nextX] = true;
+                    queue.addLast(new int[] { nextY, nextX, dist + 1 });
                 }
             }
         }
 
-        return -1; 
+        return -1;
     }
+
     public static int shortestIntPathNoDiag(int[][] grid, int[] start, int[] end, int path) {
         int rows = grid.length, cols = grid[0].length;
         boolean[][] visited = new boolean[rows][cols];
         Deque<int[]> queue = new ArrayDeque<>();
-        queue.addLast(new int[]{start[0], start[1], 0}); 
+        queue.addLast(new int[] { start[0], start[1], 0 });
         visited[start[0]][start[1]] = true;
 
         while (!queue.isEmpty()) {
             int[] current = queue.pollFirst();
             int x = current[0], y = current[1], dist = current[2];
 
-            if (x == end[0] && y == end[1]) return dist;
+            if (x == end[0] && y == end[1])
+                return dist;
 
             for (int[] dir : Coordinate.DIRECTIONS_NO_DIAG) {
                 int nextX = x + dir[0];
                 int nextY = y + dir[1];
-                if (nextX >= 0 && nextY >= 0 && nextX < rows && nextY < cols && !visited[nextX][nextY] && grid[nextX][nextY] == path) {
+                if (nextX >= 0 && nextY >= 0 && nextX < rows && nextY < cols && !visited[nextX][nextY]
+                        && grid[nextX][nextY] == path) {
                     visited[nextX][nextY] = true;
-                    queue.addLast(new int[]{nextX, nextY, dist + 1});
+                    queue.addLast(new int[] { nextX, nextY, dist + 1 });
                 }
             }
         }
 
-        return -1; 
+        return -1;
     }
 
 }

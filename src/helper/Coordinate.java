@@ -1,6 +1,7 @@
 package helper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Coordinate {
@@ -80,6 +81,33 @@ public class Coordinate {
             { -1, 0 },
             { 0, -1 },
     };
+
+    public static int[] getNoDiagDir(Direction next) {
+        if(next.equals(Direction.UP)) {
+            return new int[] {-1, 0};
+        } else if (next.equals(Direction.RIGHT)) {
+            return new int[] {0, 1};
+        } else if (next.equals(Direction.DOWN)) {
+            return new int[] {1, 0};
+        } else if (next.equals(Direction.LEFT)) {
+            return new int[] {0, -1};
+        }
+
+        return new int[] {0,0};
+    }
+
+    public static Direction getDirection(int[] next) {
+    if (Arrays.equals(next, new int[]{-1, 0})) {
+        return Direction.UP;
+    } else if (Arrays.equals(next, new int[]{0, 1})) {
+        return Direction.RIGHT;
+    } else if (Arrays.equals(next, new int[]{1, 0})) {
+        return Direction.DOWN;
+    } else if (Arrays.equals(next, new int[]{0, -1})) {
+        return Direction.LEFT;
+    }
+    return null;
+}
 
     public static boolean checkPerimeter(int x, int y, int rows, int cols, int size, char[][] grid) {
         return (x + size < cols && x - size >= 0 && y + size < rows && y - size >= 0);
